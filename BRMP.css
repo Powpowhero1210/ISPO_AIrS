@@ -1,0 +1,186 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+/* ===== THEME ===== */
+:root {
+    --bg-main: #0b1220;
+    --bg-card: rgba(255, 255, 255, 0.08);
+    --border-glass: rgba(255, 255, 255, 0.15);
+
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.6);
+
+    --success: #22c55e;
+    --unsuccess: #ff5c5c;
+
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+
+    --shadow-soft: 0 20px 40px rgba(35, 31, 31, 0.4);
+}
+
+/* ===== BODY ===== */
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #111827, var(--bg-main));
+    padding: 40px;
+    color: var(--text-main);
+}
+
+/* ===== HEADER ===== */
+.Div1 {
+    text-align: center;
+    padding: 35px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #1e3a8a, var(--accent));
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 30px;
+}
+
+.Div1 h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ===== TOP BAR ===== */
+.Div2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 26px;
+    border-radius: 18px;
+    background: var(--bg-card);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border-glass);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 35px;
+}
+
+/* ===== CONNECT BUTTON ===== */
+#Connect {
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--accent), #2563eb);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 0 transparent;
+    transition: all 0.3s ease;
+}
+
+#Connect:hover {
+    box-shadow: 0 0 25px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+#Connect:active {
+    transform: scale(0.98);
+}
+
+/* ===== STATUS ===== */
+#Status p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--unsuccess);
+    background: rgba(34, 197, 94, 0.15);
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* ===== SENSOR GRID ===== */
+.Div3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* ===== SENSOR CARDS ===== */
+.Temperaturebox,
+.Humiditybox {
+    padding: 35px;
+    border-radius: 22px;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* glow effect */
+.Temperaturebox::before,
+.Humiditybox::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(59,130,246,0.25), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.Temperaturebox:hover::before,
+.Humiditybox:hover::before {
+    opacity: 1;
+}
+
+.Temperaturebox:hover,
+.Humiditybox:hover {
+    transform: translateY(-8px);
+}
+
+/* ===== TEXT ===== */
+.Temperaturebox p:first-child,
+.Humiditybox p:first-child {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.Temperaturebox p:nth-child(2),
+.Humiditybox p:nth-child(2) {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.Temperaturebox h2,
+.Humiditybox h2 {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    .Div2 {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    #Connect {
+        width: 100%;
+    }
+}
+/* ===== ICONS ===== */
+.Temperaturebox i,
+.Humiditybox i {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--accent);
+    text-shadow: 0 0 18px var(--accent-glow);
+}

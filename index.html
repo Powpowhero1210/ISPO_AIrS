@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+<title>Automatic Irigation System</title>
+<link rel="stylesheet" href="BRMP.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="Div1">
+        <h1>Automatic Irigation System</h1>
+    </div>
+
+    <div class="Div2">
+        <div>
+            <button id="Connect">Connect</button>
+        </div>
+        <div id="Status">
+            <p>Not connected</p>
+        </div>
+    </div>
+
+    <div class="Div3">
+        <div class="TemperatureData">
+            <div class="Temperaturebox">
+                <i class="fa-solid fa-temperature-high"></i>
+                <p>Temperature: </p>
+                <p id="TemperatureValue"></p>
+                <h2>°C</h2>
+            </div>
+        </div> 
+        <div class="HumidityData">
+            <div class="Humiditybox">
+                <i class="fa-solid fa-droplet"></i>
+                <p>Humidity: </p>
+                <p id="HumidityValue"></p>
+                <h2>%</h2>
+            </div>
+        </div>
+    </div>
+     <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    
+    <!-- Main script -->
+    <script src="BRMP.JS"></script>
+
+</body>
